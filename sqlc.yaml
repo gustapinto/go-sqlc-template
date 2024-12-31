@@ -1,0 +1,12 @@
+version: "2"
+
+sql:
+  - name: "users"
+    engine: "postgresql"
+    queries: "database/queries/users.sql"
+    schema: "database/migrations/"
+    gen:
+      go:
+        out: "internal/user/repository"
+        package: "repository"
+        omit_unused_structs: true
