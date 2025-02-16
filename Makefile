@@ -1,12 +1,8 @@
 build:
 	go build -o ./bin/main.out ./cmd/main.go
 
-docker/build:
-	docker build .
+run: build
+	./bin/main.out
 
-docker/run:
-	docker build -q . | xargs docker run -p=5000:5000 --env-file=./.env
-
-sqlc/fix-permissions:
-	sudo chown -R $(USER):$(USER) internal
-
+generate:
+	go generate
